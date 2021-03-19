@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define DUZINA 10
+int main() {
+    double niz[DUZINA],temp;
+    int i,j,max;
+    for (i=0; i<DUZINA; i++) {
+        scanf("%lf", &niz[i]);
+    }
+	for (i=0; i<DUZINA-1; i++) {
+        max=i;
+        for (j=i+1; j<DUZINA; j++) {
+            if (niz[j] > niz[max])
+                max = j;
+        }
+        temp = niz[i];
+        niz[i] = niz[max];
+        niz[max] = temp;
+    }
+    for (i=0; i<DUZINA; i++)
+        printf("%g ", niz[i]);
+    printf("\n");
+    return 0;
+}
